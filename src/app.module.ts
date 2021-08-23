@@ -3,8 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 
+import { MongooseModule } from '@nestjs/mongoose';
+
 @Module({
-  imports: [NotesModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/playground-vue'),
+    NotesModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
